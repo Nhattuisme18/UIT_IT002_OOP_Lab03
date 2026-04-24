@@ -1,12 +1,6 @@
 #include "cDaThuc.h"
 #include <iostream>
 #include <algorithm>
-
-using namespace std;
-
-#include "cDaThuc.h"
-#include <iostream>
-#include <algorithm>
 #include <cmath>
 
 using namespace std;
