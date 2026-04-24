@@ -3,33 +3,28 @@
 
 using namespace std;
 
-string cNhanVienSX::getHoTen() { return HoTen; }
-Date cNhanVienSX::getNgaySinh() { return NgaySinh; }
-
-double cNhanVienSX::TinhLuong() {
-    return SoSanPham * DonGia;
-}
+cNhanVienSX::cNhanVienSX() : maNV(""), HoTen(""), SoSanPham(0), DonGia(0) {}
 
 void cNhanVienSX::Nhap() {
     cout << "Nhap ma NV: ";
     cin >> maNV;
     cin.ignore();
+
     cout << "Nhap ho ten: ";
     getline(cin, HoTen);
-    cout << "Nhap ngay sinh (ngay thang nam): ";
-    cin >> NgaySinh.ngay >> NgaySinh.thang >> NgaySinh.nam;
+
+    cout << "Nhap ngay sinh (ngay thang nam cach nhau khoang trang): ";
+    NgaySinh.Nhap();
+
     cout << "Nhap so san pham: ";
     cin >> SoSanPham;
-    cout << "Nhap don gia 1 san pham: ";
+
+    cout << "Nhap don gia: ";
     cin >> DonGia;
 }
 
 void cNhanVienSX::Xuat() {
-    cout << "Ma NV: " << maNV
-        << "\nTen: " << HoTen
-        << "\nNgay sinh: " << NgaySinh.ngay << "/" << NgaySinh.thang << "/" << NgaySinh.nam
-        << "\nSP: " << SoSanPham
-        << "\nDon gia: " << DonGia
-        << "\nLuong: " << TinhLuong() << endl;
+    cout << "Ma: " << maNV << " | Ten: " << HoTen << " | Ngay sinh: ";
+    NgaySinh.Xuat();
+    cout << " | Luong: " << (long long)TinhLuong() << " VND" << endl;
 }
-

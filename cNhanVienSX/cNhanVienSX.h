@@ -1,34 +1,20 @@
 #pragma once
 #include <string>
+#include "cNgay.h"
 
 using namespace std;
 
-struct Date {
-    int ngay, thang, nam;
-};
-
 class cNhanVienSX {
 private:
-    string maNV;
-    string HoTen;
-    Date NgaySinh;
+    string maNV, HoTen;
+    cNgay NgaySinh;
     int SoSanPham;
     double DonGia;
-
 public:
-    cNhanVienSX() {
-        maNV = "";
-        HoTen = "";
-        NgaySinh = { 18, 3, 2007 };
-        SoSanPham = 0;
-        DonGia = 0;
-    }
-    string getHoTen();
-    Date getNgaySinh();
-
+    cNhanVienSX();
+    string getHoTen() { return HoTen; }
+    cNgay getNgaySinh() { return NgaySinh; }
+    double TinhLuong() { return SoSanPham * DonGia; }
     void Nhap();
     void Xuat();
-    double TinhLuong();
 };
-
-
